@@ -534,8 +534,8 @@ void PlotLookAndFeelDefault<x_scaling_t, y_scaling_t>::drawGridLine(
   const auto y_and_len = grid_line.length + grid_line.position.getY();
   const auto x_and_len = grid_line.length + grid_line.position.getX();
 
+  g.setColour(findColour(Plot::grid_colour));
   switch (grid_line.direction) {
-    g.setColour(findColour(Plot::grid_colour));
     case GridLine::Direction::vertical:
 
       if (grid_on) {

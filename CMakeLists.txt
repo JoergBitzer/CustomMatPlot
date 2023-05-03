@@ -5,14 +5,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Get the latest version
-execute_process(
-    COMMAND git describe --tags --abbrev=0
-    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-    OUTPUT_VARIABLE GIT_VERSION
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
+#execute_process(
+#    COMMAND git describe --tags --abbrev=0
+#    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+#    OUTPUT_VARIABLE GIT_VERSION
+ #   OUTPUT_STRIP_TRAILING_WHITESPACE
+#    )
 
-project(cmp_plot VERSION ${GIT_VERSION})
+project(cmp_plot VERSION 0.1.0)
 
 # Generate version header
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/include/cmp_version.h.in
@@ -46,7 +46,7 @@ set(PUBLIC_HEADERS include/include/cmp_plot.h
 add_library(${PROJECT_NAME}
             STATIC
             ${SOURCE})
-
+set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(${PROJECT_NAME} PUBLIC "include/include"
                                            PRIVATE "include/include_internal")
 
